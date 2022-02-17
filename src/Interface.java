@@ -76,8 +76,8 @@ public class Interface {
 				BigDecimal bill = new BigDecimal(textField.getText().toString());
 				BigDecimal client = new BigDecimal(textFiled2.getText().toString());
 
-				String cashBack = calculation.drobiz(bill, client);
-				String cashBack2 = calculation.VraDenarja(bill, client);
+				String cashBack = calculation.return1(bill, client);
+				String cashBack2 = calculation.return2(bill, client);
 				
 				result.setText(cashBack);
 				result2.setText(cashBack2);
@@ -94,10 +94,10 @@ public class Interface {
 		label4.setFont(new Font(Font.SANS_SERIF,Font.BOLD,25));	
 		panel.add(label4);
 		panel.add(lblString); 
-		panel.add(textField); 
-
-		panel.add(lblString2);
+		 
 		panel.add(textFiled2);
+		panel.add(lblString2);
+		panel.add(textField);
 
 		panel.add(button);
 		panel.add(lblButtonClick);

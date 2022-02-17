@@ -5,7 +5,7 @@ import java.util.Locale;
 
 public class Calculation {
 	
-	public String drobiz(BigDecimal bills, BigDecimal clients) {
+	public String return1(BigDecimal bills, BigDecimal clients) {
 		
 		String x = "";
 		BigDecimal bill =  bills;		
@@ -40,7 +40,7 @@ public class Calculation {
 		return x;
 	}
 			
-	public String VraDenarja(BigDecimal bills, BigDecimal clients) {
+	public String return2(BigDecimal bills, BigDecimal clients) {
 		BigDecimal bill = bills;	
 		BigDecimal client = clients;	
 		BigDecimal change = bill.subtract(client);		
