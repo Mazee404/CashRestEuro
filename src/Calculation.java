@@ -15,25 +15,25 @@ public class Calculation {
 		BigDecimal change2 = change1.multiply(HUNDRED);	    
 
 		BigDecimal[] vrednosti = {new BigDecimal(1), new BigDecimal(2), new BigDecimal(5), 
-					  new BigDecimal(10), new BigDecimal(20), new BigDecimal(50),
-					  new BigDecimal(100), new BigDecimal(200), new BigDecimal(500), 
-					  new BigDecimal(1000), new BigDecimal(2000), new BigDecimal(5000), 
-					  new BigDecimal(10000), new BigDecimal(20000), new BigDecimal(50000)};
+				    			  new BigDecimal(10), new BigDecimal(20), new BigDecimal(50),
+					  			  new BigDecimal(100), new BigDecimal(200), new BigDecimal(500), 
+								  new BigDecimal(1000), new BigDecimal(2000), new BigDecimal(5000), 
+								  new BigDecimal(10000), new BigDecimal(20000), new BigDecimal(50000)};
 		
 		int i = vrednosti.length-1; 
-		BigDecimal st;
+		BigDecimal num;
 				
 		while (change2.compareTo(BigDecimal.ZERO) > 0 && i >= 0) {				
-			st = change2.divide(vrednosti[i],0,RoundingMode.DOWN);
-			if (st.compareTo(BigDecimal.ZERO) != 0) { 						
+			num = change2.divide(vrednosti[i],0,RoundingMode.DOWN);
+			if (num.compareTo(BigDecimal.ZERO) != 0) { 						
 				if (change2.compareTo(BigDecimal.valueOf(100)) >= 0) {
-					x += ("\t"+(vrednosti[i].divide(HUNDRED))+"€ = "+st+"\n"); 
+					x += ("\t"+(vrednosti[i].divide(HUNDRED))+"€ = "+num+"\n"); 
 				} else if (change2.compareTo(BigDecimal.valueOf(10)) >= 0){
-					x += ("\t"+(vrednosti[i].divide(HUNDRED))+"0c = "+st+"\n");
+					x += ("\t"+(vrednosti[i].divide(HUNDRED))+"0c = "+num+"\n");
 				} else  if (change2.compareTo(BigDecimal.valueOf(1)) >= 0){
-					x += ("\t"+(vrednosti[i].divide(HUNDRED))+"c = "+st+"\n");
+					x += ("\t"+(vrednosti[i].divide(HUNDRED))+"c = "+num+"\n");
 				}				
-				change2 = change2.subtract(st.multiply(vrednosti[i]));
+				change2 = change2.subtract(num.multiply(vrednosti[i]));
 			}
 			i--;
 		}		
@@ -43,9 +43,9 @@ public class Calculation {
 	public String VraDenarja(BigDecimal bills, BigDecimal clients) {
 		BigDecimal bill = bills;	
 		BigDecimal client = clients;	
-		BigDecimal vra = bill.subtract(client);		
+		BigDecimal change = bill.subtract(client);		
 		NumberFormat n = NumberFormat.getCurrencyInstance(Locale.ITALY); 
-	    String s = n.format(vra);	    
+	    String s = n.format(change);	    
 		return s;
 	}
 }

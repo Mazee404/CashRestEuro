@@ -18,29 +18,29 @@ public class Interface {
 
 	private JFrame frame;
 	private JPanel panel;
-	private JLabel lblVnesiNiz;
-	private JLabel lblVnesiNiz2;
-	public JTextField vnosnoPolje;
-	public JTextField vnosnoPolje2;
-	private JLabel lblGumbKlik; 
-	private JLabel vnesenoBesedilo;
-	private JLabel vnesenoBesedilo2;
-	private JLabel vnesenoBesedilo3;
-	private JLabel vnesenoBesedilo4;
-	private JTextArea izracun;
-	private JLabel izracun2;
-	private Calculation blagajna;
+	private JLabel lblString;
+	private JLabel lblString2;
+	public JTextField textField;
+	public JTextField textFiled2;
+	private JLabel lblButtonClick; 
+	private JLabel label;
+	private JLabel label2;
+	private JLabel label3;
+	private JLabel label4;
+	private JTextArea result;
+	private JLabel result2;
+	private Calculation calculation;
 
 	Interface() {
-		this.pripraviUI();
-		this.blagajna = new Calculation();
+		this.view();
+		this.calculation = new Calculation();
 	}
 
-	public void pokazi() {
+	public void see() {
 		frame.setVisible(true);
 	}
 
-	private void pripraviUI() { 
+	private void view() { 
 		frame = new JFrame("The Rest"); 
 		frame.setSize(300, 430);
 		frame.setLocation(700, 300);
@@ -50,37 +50,37 @@ public class Interface {
 			}
 		});
 
-		this.lblVnesiNiz = new JLabel("Vnesi znesek racuna:"); 
-		this.vnosnoPolje = new JTextField(10); 
+		this.lblString = new JLabel("Enter how much is Bill:"); 
+		this.textField = new JTextField(10); 
 
-		this.lblVnesiNiz2 = new JLabel("Vnesi vplacano vsoto:");
-		this.vnosnoPolje2 = new JTextField(10);
+		this.lblString2 = new JLabel("Enter how much is Cash:");
+		this.textFiled2 = new JTextField(10);
 
-		this.lblGumbKlik = new JLabel();
+		this.lblButtonClick = new JLabel();
 		
-		izracun = new JTextArea();	
-		izracun2 = new JLabel();
+		result = new JTextArea();	
+		result2 = new JLabel();
 
-		JButton gumb = new JButton("Izracunaj"); 
-		gumb.setPreferredSize(new Dimension(230,30));
+		JButton button = new JButton("Enter"); 
+		button.setPreferredSize(new Dimension(230,30));
 		
-		gumb.addActionListener(new ActionListener() { 
+		button.addActionListener(new ActionListener() { 
 			public void actionPerformed(ActionEvent e) {
 				
-				lblGumbKlik.setText(""); 
-				vnesenoBesedilo.setText(vnosnoPolje.getText().toString());
+				lblButtonClick.setText(""); 
+				label.setText(textField.getText().toString());
 				
-				lblGumbKlik.setText("");
-				vnesenoBesedilo2.setText(vnosnoPolje2.getText().toString());
+				lblButtonClick.setText("");
+				label2.setText(textFiled2.getText().toString());
 
-				BigDecimal racun = new BigDecimal(vnosnoPolje.getText().toString());
-				BigDecimal vroceno = new BigDecimal(vnosnoPolje2.getText().toString());
+				BigDecimal bill = new BigDecimal(textField.getText().toString());
+				BigDecimal client = new BigDecimal(textFiled2.getText().toString());
 
-				String zaVrniti = blagajna.drobiz(racun, vroceno);
-				String zaVrniti2 = blagajna.VraDenarja(racun, vroceno);
+				String cashBack = calculation.drobiz(bill, client);
+				String cashBack2 = calculation.VraDenarja(bill, client);
 				
-				izracun.setText(zaVrniti);
-				izracun2.setText(zaVrniti2);
+				result.setText(cashBack);
+				result2.setText(cashBack2);
 			}
 		});
 
@@ -88,34 +88,34 @@ public class Interface {
 		panel.setLayout(new FlowLayout()); 
 		Color myColor = new Color(154, 208, 236);
 		panel.setBackground(myColor);
-		izracun.setBackground(myColor);
+		result.setBackground(myColor);
 
-		vnesenoBesedilo4 = new JLabel("     D°Rest     ");
-		vnesenoBesedilo4.setFont(new Font(Font.SANS_SERIF,Font.BOLD,25));	
-		panel.add(vnesenoBesedilo4);
-		panel.add(lblVnesiNiz); 
-		panel.add(vnosnoPolje); 
+		label4 = new JLabel("     D°Rest     ");
+		label4.setFont(new Font(Font.SANS_SERIF,Font.BOLD,25));	
+		panel.add(label4);
+		panel.add(lblString); 
+		panel.add(textField); 
 
-		panel.add(lblVnesiNiz2);
-		panel.add(vnosnoPolje2);
+		panel.add(lblString2);
+		panel.add(textFiled2);
 
-		panel.add(gumb);
-		panel.add(lblGumbKlik);
+		panel.add(button);
+		panel.add(lblButtonClick);
 		
-		vnesenoBesedilo = new JLabel();
-		vnesenoBesedilo2 = new JLabel();
-		vnesenoBesedilo3 = new JLabel("Vsota za vracilo : ");
+		label = new JLabel();
+		label2 = new JLabel();
+		label3 = new JLabel("Vsota za vracilo : ");
 			
-		panel.add(vnesenoBesedilo3);
-		panel.add(izracun2);
-		panel.add(izracun);
+		panel.add(label3);
+		panel.add(result2);
+		panel.add(result);
 		
-		izracun.setFont(new Font(Font.SANS_SERIF,Font.BOLD,12));
-		izracun.setColumns(20);
-		izracun.setRows(15);
-		izracun.setLineWrap(true);	
-		izracun.setWrapStyleWord(true);
-		izracun.setEditable(false);
+		result.setFont(new Font(Font.SANS_SERIF,Font.BOLD,12));
+		result.setColumns(20);
+		result.setRows(15);
+		result.setLineWrap(true);	
+		result.setWrapStyleWord(true);
+		result.setEditable(false);
 		
 		frame.setResizable(false);
 		frame.add(panel); 
@@ -124,6 +124,6 @@ public class Interface {
 
 	public static void main(String[] args) {
 		Interface program = new Interface(); 
-		program.pokazi();
+		program.see();
 	}
 }
