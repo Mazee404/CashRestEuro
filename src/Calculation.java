@@ -15,10 +15,10 @@ public class Calculation {
 		BigDecimal change2 = change1.multiply(HUNDRED);	    
 
 		BigDecimal[] vrednosti = {new BigDecimal(1), new BigDecimal(2), new BigDecimal(5), 
-								  new BigDecimal(10), new BigDecimal(20), new BigDecimal(50),
-								  new BigDecimal(100), new BigDecimal(200), new BigDecimal(500), 
-								  new BigDecimal(1000), new BigDecimal(2000), new BigDecimal(5000), 
-								  new BigDecimal(10000), new BigDecimal(20000), new BigDecimal(50000)};
+					  new BigDecimal(10), new BigDecimal(20), new BigDecimal(50),
+					  new BigDecimal(100), new BigDecimal(200), new BigDecimal(500), 
+					  new BigDecimal(1000), new BigDecimal(2000), new BigDecimal(5000), 
+					  new BigDecimal(10000), new BigDecimal(20000), new BigDecimal(50000)};
 		
 		int i = vrednosti.length-1; 
 		BigDecimal st;
